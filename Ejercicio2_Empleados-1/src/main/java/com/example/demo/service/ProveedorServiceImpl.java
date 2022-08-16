@@ -26,7 +26,7 @@ public class ProveedorServiceImpl implements IProveedorService{
 	}
 
 	@Override
-	public Proveedor proveedorXId(char id) {
+	public Proveedor proveedorXId(String id) {
 		return iProveedorDAO.findById(id).get();
 	}
 
@@ -41,7 +41,7 @@ public class ProveedorServiceImpl implements IProveedorService{
 	}
 
 	@Override
-	public void eliminarProveedor(char id) {
+	public void eliminarProveedor(String id) {
 		iProveedorDAO.deleteById(id);
 		
 	}

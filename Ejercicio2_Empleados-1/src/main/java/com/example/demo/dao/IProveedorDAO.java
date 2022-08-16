@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.demo.dto.Proveedor;
 
-public interface IProveedorDAO extends JpaRepository<Proveedor, Character>{
+public interface IProveedorDAO extends JpaRepository<Proveedor, String>{
 
 	// Proveedor por nombre
 	public List<Proveedor> findByNombre(String nombre);

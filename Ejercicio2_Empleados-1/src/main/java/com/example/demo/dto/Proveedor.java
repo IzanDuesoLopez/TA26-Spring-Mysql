@@ -20,12 +20,12 @@ public class Proveedor {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private char id;
+	private String id;
 	@Column(name="nombre")
 	private String nombre;
 	
 	@OneToMany
-	@JoinColumn(name="idProveedor")
+	@JoinColumn(name="id_proveedor")
 	private List<Suministra> suministra;
 	
 	// Constructor default
@@ -39,8 +39,7 @@ public class Proveedor {
 	 * @param nombre
 	 * @param suministra
 	 */
-	public Proveedor(char id, String nombre, List<Suministra> suministra) {
-		super();
+	public Proveedor(String id, String nombre, List<Suministra> suministra) {
 		this.id = id;
 		this.nombre = nombre;
 		this.suministra = suministra;
@@ -49,14 +48,14 @@ public class Proveedor {
 	/**
 	 * @return the id
 	 */
-	public char getId() {
+	public String getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(char id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -72,13 +71,6 @@ public class Proveedor {
 	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
-
-	/**
-	 * @return the suministra
-	 */
-	public List<Suministra> getSuministra1() {
-		return suministra;
 	}
 
 	/**
