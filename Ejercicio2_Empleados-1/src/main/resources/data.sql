@@ -12,8 +12,10 @@ create table proveedores(
 );
 
 create table suministra(
+    id int auto_increment primary key,
     codigoPieza int,
     idProveedor char(4),
+    precio int,
     foreign key(codigoPieza) references Piezas(codigo),
     foreign key(idProveedor) references Proveedores(id)
 );
@@ -21,4 +23,4 @@ create table suministra(
 
 insert into piezas(nombre)values('PiezaUno');
 insert into proveedores(id, nombre)values('aaaa', 'Intel');
-insert into suministra(codigoPieza, idProveedor(values(1, 'aaaa');
+insert into suministra(codigoPieza, idProveedor, precio)values(1, 'aaaa', 200);

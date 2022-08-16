@@ -1,5 +1,7 @@
 package com.example.demo.dto;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -27,8 +29,7 @@ public class Pieza {
 	private List<Suministra> suministra;
 	
 	// Constructor default
-	public Pieza() {
-		
+	public Pieza() {	
 		
 	}
 
@@ -37,9 +38,10 @@ public class Pieza {
 	 * @param codigo
 	 * @param nombre
 	 */
-	public Pieza(int codigo, String nombre) {
+	public Pieza(int codigo, String nombre, List<Suministra> suministra) {
 		this.codigo = codigo;
 		this.nombre = nombre;
+		this.suministra = suministra;
 	}
 
 	/**
@@ -70,6 +72,13 @@ public class Pieza {
 		this.nombre = nombre;
 	}
 	
+	/**
+	 * @param suministra the suministra to set
+	 */
+	public void setSuministra(List<Suministra> suministra) {
+		this.suministra = suministra;
+	}
+
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Suministra")
 	public List<Suministra> getSuministra(){
