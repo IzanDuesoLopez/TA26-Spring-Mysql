@@ -9,7 +9,6 @@ public interface ICientificoService {
 	public List<Cientifico> listarCientificos();
 	public Cientifico guardarCientifico(Cientifico cientifico);
 	public Cientifico cientificoXDni(String dni);
-	public List<Cientifico> listarCientificosNombre(String nombre);
 	public Cientifico actualizarCientifico(Cientifico cientifico);
 	public void eliminarCientifico(String dni);
 	

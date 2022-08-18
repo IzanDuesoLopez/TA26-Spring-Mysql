@@ -31,11 +31,6 @@ public class CientificoServiceImpl implements ICientificoService{
 	}
 
 	@Override
-	public List<Cientifico> listarCientificosNombre(String nombre) {
-		return iCientificoDAO.findByNombre(nombre);
-	}
-
-	@Override
 	public Cientifico actualizarCientifico(Cientifico cientifico) {
 		return iCientificoDAO.save(cientifico);
 	}
