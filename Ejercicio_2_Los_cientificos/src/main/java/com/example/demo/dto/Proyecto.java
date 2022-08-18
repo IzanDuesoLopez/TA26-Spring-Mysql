@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Proyecto {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id")
 	private String id;
 	@Column(name="nombre")
 	private String nombre;
@@ -91,13 +91,6 @@ public class Proyecto {
 	}
 
 	/**
-	 * @return the asignado_a
-	 */
-	public List<Asignado_a> getAsignado_a() {
-		return asignado_a;
-	}
-
-	/**
 	 * @param asignado_a the asignado_a to set
 	 */
 	public void setAsignado_a(List<Asignado_a> asignado_a) {
@@ -106,9 +99,9 @@ public class Proyecto {
 
 	@JsonIgnore
 	@OneToMany(fetch =  FetchType.LAZY, mappedBy = "Asignado_a")
-		public List<Asignado_a> getAsignadoA(){
-			return asignado_a;
-		}
+	public List<Asignado_a> getAsignado_a() {
+		return asignado_a;
+	}
 	
 	@Override
 	public String toString() {

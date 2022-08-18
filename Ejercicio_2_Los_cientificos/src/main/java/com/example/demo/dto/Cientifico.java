@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Cientifico {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "dni")
 	private String dni;
 	@Column(name="nom_apels")
 	private String nom_apels;
@@ -73,13 +73,6 @@ public class Cientifico {
 	}
 
 	/**
-	 * @return the asignado_a
-	 */
-	public List<Asignado_a> getAsignado_a() {
-		return asignado_a;
-	}
-
-	/**
 	 * @param asignado_a the asignado_a to set
 	 */
 	public void setAsignado_a(List<Asignado_a> asignado_a) {
@@ -88,7 +81,7 @@ public class Cientifico {
 	
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Asignado_a")
-	public List<Asignado_a> getAsignadoA(){
+	public List<Asignado_a> getAsignado_a(){
 		return asignado_a;
 	}
 
