@@ -18,10 +18,10 @@ create table maquinas_registradoras(
 
 create table ventas(
     id int auto_increment primary key,
-    cajero int,
-    maquina int,
-    producto int,
-    constraint ventas_a_fk foreign key (cajero) references cajeros(codigo),
-    constraint ventas_a_fk_01 foreign key (maquina) references maquinas_registradoras(codigo),
-    constraint ventas_a_fk_02 foreign key (producto) references productos(codigo)
+    codigo_cajero int,
+    codigo_producto int,
+    codigo_maquina int,
+    constraint ventas_a_fk foreign key (codigo_cajero) references cajeros(codigo),
+    constraint ventas_a_fk_01 foreign key (codigo_maquina) references maquinas_registradoras(codigo),
+    constraint ventas_a_fk_02 foreign key (codigo_producto) references productos(codigo)
 );

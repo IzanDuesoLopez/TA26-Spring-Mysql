@@ -15,32 +15,36 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name="cajeros")
-public class Cajero {
+@Table(name="productos")
+public class Producto {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codigo;
-	@Column(name="nom_apels")
-	private String nom_apels;
+	@Column(name="nombre")
+	private String nombre;
+	@Column(name="precio")
+	private int precio;
 	
 	@OneToMany
-	@JoinColumn(name="codigo_cajero")
+	@JoinColumn(name="codigo_producto")
 	private List<Venta> venta;
 	
-	public Cajero() {
+	public Producto() {
 		
 	}
 
 	/**
 	 * Constructor full
 	 * @param codigo
-	 * @param nom_apels
+	 * @param nombre
+	 * @param precio
 	 * @param venta
 	 */
-	public Cajero(int codigo, String nom_apels, List<Venta> venta) {
+	public Producto(int codigo, String nombre, int precio, List<Venta> venta) {
 		this.codigo = codigo;
-		this.nom_apels = nom_apels;
+		this.nombre = nombre;
+		this.precio = precio;
 		this.venta = venta;
 	}
 
@@ -59,17 +63,31 @@ public class Cajero {
 	}
 
 	/**
-	 * @return the nom_apels
+	 * @return the nombre
 	 */
-	public String getNom_apels() {
-		return nom_apels;
+	public String getNombre() {
+		return nombre;
 	}
 
 	/**
-	 * @param nom_apels the nom_apels to set
+	 * @param nombre the nombre to set
 	 */
-	public void setNom_apels(String nom_apels) {
-		this.nom_apels = nom_apels;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	/**
+	 * @return the precio
+	 */
+	public int getPrecio() {
+		return precio;
+	}
+
+	/**
+	 * @param precio the precio to set
+	 */
+	public void setPrecio(int precio) {
+		this.precio = precio;
 	}
 
 	/**
@@ -90,7 +108,7 @@ public class Cajero {
 
 	@Override
 	public String toString() {
-		return "Cajero [codigo=" + codigo + ", nom_apels=" + nom_apels + "]";
+		return "Producto [codigo=" + codigo + ", nombre=" + nombre + ", precio=" + precio + "]";
 	}
 	
 	

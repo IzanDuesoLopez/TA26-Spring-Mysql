@@ -15,32 +15,32 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name="cajeros")
-public class Cajero {
+@Table(name="maquinas_registradoras")
+public class MaquinaRegistradora {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codigo;
-	@Column(name="nom_apels")
-	private String nom_apels;
+	@Column(name="piso")
+	private int piso;
 	
 	@OneToMany
-	@JoinColumn(name="codigo_cajero")
+	@JoinColumn(name="codigo_maquina")
 	private List<Venta> venta;
 	
-	public Cajero() {
+	public MaquinaRegistradora() {
 		
 	}
 
 	/**
 	 * Constructor full
 	 * @param codigo
-	 * @param nom_apels
+	 * @param piso
 	 * @param venta
 	 */
-	public Cajero(int codigo, String nom_apels, List<Venta> venta) {
+	public MaquinaRegistradora(int codigo, int piso, List<Venta> venta) {
 		this.codigo = codigo;
-		this.nom_apels = nom_apels;
+		this.piso = piso;
 		this.venta = venta;
 	}
 
@@ -59,17 +59,17 @@ public class Cajero {
 	}
 
 	/**
-	 * @return the nom_apels
+	 * @return the piso
 	 */
-	public String getNom_apels() {
-		return nom_apels;
+	public int getPiso() {
+		return piso;
 	}
 
 	/**
-	 * @param nom_apels the nom_apels to set
+	 * @param piso the piso to set
 	 */
-	public void setNom_apels(String nom_apels) {
-		this.nom_apels = nom_apels;
+	public void setPiso(int piso) {
+		this.piso = piso;
 	}
 
 	/**
@@ -90,7 +90,7 @@ public class Cajero {
 
 	@Override
 	public String toString() {
-		return "Cajero [codigo=" + codigo + ", nom_apels=" + nom_apels + "]";
+		return "MaquinaRegistradora [codigo=" + codigo + ", piso=" + piso + "]";
 	}
 	
 	
