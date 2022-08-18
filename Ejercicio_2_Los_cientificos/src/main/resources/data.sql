@@ -15,9 +15,9 @@ create table proyectos (
 );
 
 create table asignado_a (
+    id int auto_increment primary key,
 	cientifico varchar(8),
     proyecto char(4),
-    primary key (cientifico, proyecto),
     foreign key (cientifico) references cientificos (dni)
     on delete cascade on update cascade,
     foreign key (proyecto) references proyectos (id)
