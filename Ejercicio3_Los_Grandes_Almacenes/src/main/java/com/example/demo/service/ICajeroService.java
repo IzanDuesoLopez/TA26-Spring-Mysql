@@ -10,7 +10,6 @@ public interface ICajeroService {
 	public List<Cajero> listarCajeros();
 	public Cajero guardarCajero(Cajero cajero);
 	public Cajero cajeroXCodigo(int codigo);
-	public List<Cajero> listarCajeroNombre(String nom_apels);
 	public Cajero actualizarCajero(Cajero cajero);
 	public void eliminarCajero(int codigo);
 	

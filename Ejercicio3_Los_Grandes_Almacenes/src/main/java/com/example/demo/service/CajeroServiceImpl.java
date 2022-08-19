@@ -30,11 +30,6 @@ public class CajeroServiceImpl implements ICajeroService{
 	}
 
 	@Override
-	public List<Cajero> listarCajeroNombre(String nom_apels) {
-		return iCajeroDAO.findByNombre(nom_apels);
-	}
-
-	@Override
 	public Cajero actualizarCajero(Cajero cajero) {
 		return iCajeroDAO.save(cajero);
 	}
