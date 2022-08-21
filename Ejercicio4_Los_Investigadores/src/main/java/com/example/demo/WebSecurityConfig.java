@@ -24,9 +24,4 @@ public class WebSecurityConfig {
         .and().formLogin().permitAll()
         .and().httpBasic();
     }
-    
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**").allowedMethods("*");
-    }
-
 }
