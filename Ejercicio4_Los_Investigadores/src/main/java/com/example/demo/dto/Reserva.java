@@ -1,17 +1,20 @@
 package com.example.demo.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="reservas")
-public class Reserva {
+@IdClass(Reserva.class)
+public class Reserva implements Serializable{
 
 	@Id
 	@ManyToOne
