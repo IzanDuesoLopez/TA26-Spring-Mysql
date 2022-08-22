@@ -59,4 +59,3 @@ public class LoginFilter extends AbstractAuthenticationProcessingFilter {
         JwtUtil.addAuthentication(res, auth.getName());
     }
 }
-
