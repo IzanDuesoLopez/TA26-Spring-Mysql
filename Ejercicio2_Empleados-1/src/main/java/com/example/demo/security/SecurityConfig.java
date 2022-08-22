@@ -10,31 +10,25 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable().authorizeRequests()
-            .antMatchers("/login").permitAll() //permitimos el acceso a /login a cualquiera
-            .anyRequest().authenticated() //cualquier otra peticion requiere autenticacion
-            .and()
-            // Las peticiones /login pasaran previamente por este filtro
-            .addFilterBefore(new LoginFilter("/login", authenticationManager()),
-                    UsernamePasswordAuthenticationFilter.class)
-
-            // Las demás peticiones pasarán por este filtro para validar el token
-            .addFilterBefore(new JwtFilter(),
-                    UsernamePasswordAuthenticationFilter.class);
-    }
+	 @Override
+	    protected void configure(HttpSecurity http) throws Exception {
+	        http
+	            .authorizeHttpRequests((authz) -> authz
+	                .anyRequest().authenticated()
+	            )
+	            .httpBasic();
+	    }
 
    @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         // Creamos una cuenta de usuario por default
        auth.inMemoryAuthentication()
-               .withUser("izan")
+               .withUser("ask")
                .password("{noop}123")
                .roles("ADMIN");
        
        auth.inMemoryAuthentication()
-			   .withUser("joel")
+			   .withUser("jose")
 			   .password("{noop}root")
 			   .roles("USER");
     }

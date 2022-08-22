@@ -18,8 +18,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collections;
 
-import com.example.demo.security.JwtUtil;
-
 public class LoginFilter extends AbstractAuthenticationProcessingFilter {
 
     public LoginFilter(String url, AuthenticationManager authManager) {
@@ -61,3 +59,4 @@ public class LoginFilter extends AbstractAuthenticationProcessingFilter {
         JwtUtil.addAuthentication(res, auth.getName());
     }
 }
+

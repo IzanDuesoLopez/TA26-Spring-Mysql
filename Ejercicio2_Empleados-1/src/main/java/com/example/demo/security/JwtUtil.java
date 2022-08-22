@@ -1,6 +1,5 @@
 package com.example.demo.security;
 
-
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 
@@ -26,7 +25,7 @@ public class JwtUtil {
             .setExpiration(new Date(System.currentTimeMillis() + 60000))
 
             // Hash con el que firmaremos la clave
-            .signWith(SignatureAlgorithm.HS512, "Spiderman")
+            .signWith(SignatureAlgorithm.HS512, "P@tit0")
             .compact();
 
         //agregamos al encabezado el token
@@ -42,7 +41,7 @@ public class JwtUtil {
         // si hay un token presente, entonces lo validamos
         if (token != null) {
             String user = Jwts.parser()
-                    .setSigningKey("Spiderman")
+                    .setSigningKey("P@tit0")
                     .parseClaimsJws(token.replace("Bearer", "")) //este metodo es el que valida
                     .getBody()
                     .getSubject();
